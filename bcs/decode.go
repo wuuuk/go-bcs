@@ -290,7 +290,7 @@ func (d *Decoder) decodeArray(v reflect.Value) (int, error) {
 	if elementType.Kind() == reflect.Pointer {
 		for i := 0; i < size; i++ {
 			idx := reflect.New(elementType.Elem())
-			k, err := d.decode(idx.Elem())
+			k, err := d.decode(idx)
 			n += k
 			if err != nil {
 				return n, err
