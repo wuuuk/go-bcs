@@ -327,7 +327,7 @@ func (d *Decoder) decodeSlice(v reflect.Value) (int, error) {
 	if elementType.Kind() == reflect.Pointer {
 		for i := 0; i < size; i++ {
 			ind := reflect.New(elementType.Elem())
-			k, err := d.decode(ind.Elem())
+			k, err := d.decode(ind)
 			n += k
 			if err != nil {
 				return n, err
